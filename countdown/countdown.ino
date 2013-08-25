@@ -1,3 +1,25 @@
+/*
+  Countdown
+  
+  Counts down to zero from an adjustable value. 
+  Uses a 3 digits 7 segments display to show the remaining seconds. 
+  Plays a sound when the time is over. 
+    
+  created 24 Aug 2013 
+  by Steffen Retzlaff
+   
+  Public Domain - available on GitHub
+  https://github.com/pele1/Arduino/tree/master/countdown
+  
+  Breadboard drawing:
+  https://github.com/pele1/Arduino/blob/master/countdown/arduino_countdown_breadboard.png
+    
+  Uses Arduino example code:
+  - Melody by Tom Igoe 
+  - Blink without Delay by David A. Mellis and Paul Stoffregen
+
+ */
+
 #include "pitches.h"
 
 
@@ -245,9 +267,6 @@ void loop() {
      setDisplayNumber(currentCountDownSecs); 
      previousMillis = currentMillis;   
 
-    
-    //Serial.println(countNumber);
-    // do something every xxx milliseconds
   }  
   
   if(!countDownReached) {
@@ -271,9 +290,7 @@ void loop() {
       digitalWrite(DIG_10, DIG_OFF); 
       digitalWrite(DIG_100,   DIG_ON); 
       if(digit100Segs & testPattern) digitalWrite(segments[segIndex], SEG_ON);  
-      
-      //if(digitState[0][segPin]) digitalWrite(segPin, SEG_ON); 
-      //delay(200); 
+  
       testPattern = testPattern >> 1;
     }
     
